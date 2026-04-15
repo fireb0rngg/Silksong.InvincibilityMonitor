@@ -26,8 +26,8 @@ internal class NeedolinCondition : CallbackCondition
 
     protected override bool Callback() =>
         HeroPerformanceRegion.IsPerforming
-        && (checks.Any(c => c.affectedState != HeroPerformanceRegion.AffectedState.None)
-            || checksV2.Any(c => c.affectedState != HeroPerformanceRegion.AffectedState.None));
+        && (checks.Any(c => c.affectedState == HeroPerformanceRegion.AffectedState.ActiveInner)
+            || checksV2.Any(c => c.affectedState == HeroPerformanceRegion.AffectedState.ActiveInner));
 
     private static void PostfixOnEnter(CheckHeroPerformanceRegion self)
     {
